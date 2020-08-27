@@ -5,7 +5,7 @@ using namespace std;
 
 vector<int> slidingWindowMax(vector<int> arr, int k)
 {
-	cout << "code from Qk" << endl;
+    cout << "code from Qk" << endl;
     vector<int> res;
     if (k > arr.size())
         return res;
