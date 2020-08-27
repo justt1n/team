@@ -6,6 +6,7 @@ using namespace std;
 vector<int> slidingWindowMax(vector<int> arr, int k)
 {
 	cout << "code from Qk" << endl;
+	cout << "another code";
     vector<int> res;
     if (k > arr.size())
         return res;
