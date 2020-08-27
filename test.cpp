@@ -5,8 +5,12 @@ using namespace std;
 
 vector<int> slidingWindowMax(vector<int> arr, int k)
 {
+<<<<<<< HEAD:test.c
 	cout << "code from Qk" << endl;
 	cout << "another code";
+=======
+    cout << "code from Qk" << endl;
+>>>>>>> 1bf639ce2666278c57dc912153be73a8eb5f1d0f:test.cpp
     vector<int> res;
     if (k > arr.size())
         return res;
