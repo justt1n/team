@@ -1,0 +1,8 @@
+Cho dãy a gồm các số nguyên không âm a[1], a[2], ..., a[n] và m câu hỏi được lưu trong ma trận Q.
+
+Ứng với mỗi bộ 2 số (l, r) trong Q là một câu hỏi yêu cầu bạn hãy tìm số lớn nhất trong các số từ a[l], a[l + 1], ..., a[r]. Kết quả trả về sẽ là mảng gồm m phần tử, trong đó phần tử thứ i chính là kết quả của câu hỏi thứ i.
+
+Ví dụ:
+
+Với a = [2, 5, 7, 3], Q = [[2, 2], [2, 4], [1, 3]] thì output là maxRange(a, Q) = [5, 7, 7].
+Với a = [2, 6, 7, 1, 3, 8, 9], Q = [[1, 3], [2, 4], [4, 6], [1, 7]] thì output là maxRange(a, Q) = [7, 7, 8, 9].
