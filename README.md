@@ -10,19 +10,24 @@ Sau đây là 1 số lệnh cơ bản để làm việc với github này (step 
 -   Mở cmd hoặc powershell trong máy lên và nhập
     cd D:\study
 
-#1: tải repositories (github) team mình về máy bằng lệnh
-git clone https://github.com/justt1n/team.git
+#1: tải repositories (github) team mình về máy bằng lệnh:
+
+-   git clone https://github.com/justt1n/team.git
 
 #2: lấy dữ liệu mới nhất về (lần đầu thì không cần):
-git pull
+
+-   git pull
 
 #3: thêm tệp vừa code vào git repositories, vd là tệp a.c:
-git add a.c
+
+-   git add a.c
 
 #4: báo rằng đã thay đổi tệp, ví dụ: Thêm file a.c:
-git commit -m "them file a.c"
+
+-   git commit -m "them file a.c"
 
 #5: Đẩy repositories từ máy lên github:
-git push
+
+-   git push
 
 Done :D
