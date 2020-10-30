@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -26,7 +27,7 @@ int sumNumbersLargerAverage(std::vector<int> a)
 	for (int i = 0; i < a.size(); i++)
 		s += a[i];
 	long long avg = s / a.size();
-	// sort(a.begin(), a.end());
+	sort(a.begin(), a.end());
 	long long sum = 0;
 	int start = binarySearch(a, 0, a.size() - 1, avg);
 	for (int i = start; i < a.size(); i++)
