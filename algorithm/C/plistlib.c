@@ -186,6 +186,7 @@ void reverse(List *pL)
 
 void normalize(List *pL)
 {
+<<<<<<< HEAD
     Position q, p = (*pL);
     while (p->Next != NULL)
     {
@@ -193,6 +194,15 @@ void normalize(List *pL)
         while (q->Next != NULL)
         {
             if (p->Next->Element == q->Next->Element)
+=======
+    Position q, p = *pL;
+    while (p->Next->Next != NULL)
+    {
+        q = p->Next;
+        while (q != NULL)
+        {
+            if (p->Element == q->Element)
+>>>>>>> c478b5bf8ed4c594f8a6f04c813fc0aeacedf4d4
                 deleteList(q, pL);
             else
                 q = q->Next;
@@ -201,6 +211,7 @@ void normalize(List *pL)
     }
 }
 
+<<<<<<< HEAD
 void erase(int x, List *pL)
 {
     Position p = locate(x, *pL);
@@ -215,6 +226,31 @@ void swap(int *a, int *b)
     int tmp = *a;
     *a = *b;
     *b = tmp;
+=======
+void addFirst(ElementType x, List *pL)
+{
+    Position tmp = (*pL)->Next;
+    Position p;
+    p->Element = x;
+    p->Next = tmp;
+    free(tmp);
+}
+
+List readSet()
+{
+    List L;
+    makenullList(&L);
+    int n;
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++)
+    {
+        int x;
+        scanf("%d", &x);
+        if (member(x, L) == 0)
+            addFirst(x, &L);
+    }
+    return L;
+>>>>>>> c478b5bf8ed4c594f8a6f04c813fc0aeacedf4d4
 }
 
 void sort(List *pL)
@@ -237,6 +273,7 @@ void sort(List *pL)
 List hamHop(List L1, List L2)
 {
     List L;
+<<<<<<< HEAD
     makenullList(&L);
     Position a = L1;
     Position b = L2;
@@ -250,6 +287,22 @@ List hamHop(List L1, List L2)
     {
         append(b->Element, &L);
         b = b->Next;
+=======
+    Position p;
+    L = (Node *)malloc(sizeof(Node));
+    makenullList(&L);
+
+    append(1, &L);
+    append(1, &L);
+    append(1, &L);
+
+    normalize(&L);
+    p = L;
+    while (p->Next != NULL)
+    {
+        printf("%d ", p->Next->Element);
+        p = p->Next;
+>>>>>>> c478b5bf8ed4c594f8a6f04c813fc0aeacedf4d4
     }
     normalize(&L);
     return L;
