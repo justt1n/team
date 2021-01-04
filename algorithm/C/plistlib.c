@@ -160,13 +160,13 @@ void readList(List *pL)
 
 void normalize(List *pL)
 {
-    Position q,p = *pL;
-    while(p->Next->Next!= NULL)
+    Position q, p = *pL;
+    while (p->Next->Next != NULL)
     {
         q = p->Next;
-        while(q!= NULL)
+        while (q != NULL)
         {
-            if(p->Element == q->Element)
+            if (p->Element == q->Element)
                 deleteList(q, pL);
             else
                 q = q->Next;
@@ -175,25 +175,48 @@ void normalize(List *pL)
     }
 }
 
+void addFirst(ElementType x, List *pL)
+{
+    Position tmp = (*pL)->Next;
+    Position p;
+    p->Element = x;
+    p->Next = tmp;
+    free(tmp);
+}
+
+List readSet()
+{
+    List L;
+    makenullList(&L);
+    int n;
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++)
+    {
+        int x;
+        scanf("%d", &x);
+        if (member(x, L) == 0)
+            addFirst(x, &L);
+    }
+    return L;
+}
 
 int main()
 {
     List L;
-    Position p;		
-    L=(Node *)malloc(sizeof(Node));	
+    Position p;
+    L = (Node *)malloc(sizeof(Node));
     makenullList(&L);
-	
+
     append(1, &L);
     append(1, &L);
     append(1, &L);
 
-	
     normalize(&L);
-    p=L;
-    while(p->Next!=NULL)
+    p = L;
+    while (p->Next != NULL)
     {
-		printf("%d ",p->Next->Element);
-		p=p->Next;
+        printf("%d ", p->Next->Element);
+        p = p->Next;
     }
     return 0;
 }
