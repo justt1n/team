@@ -64,20 +64,6 @@ int member(int x, List L)
     return flag;
 }
 
-void copyEvenNumbers(List L1, List *pL2)
-{
-    makenullList(pL2);
-    Position p = *pL2;
-    while (L1->Next != NULL)
-    {
-        L1 = L1->Next;
-        if (L1->Element % 2 == 0)
-        {
-            append(L1->Element, &p);
-        }
-    }
-}
-
 void deleteList(Position P, List *pL)
 {
     Position Temp;
@@ -89,71 +75,15 @@ void deleteList(Position P, List *pL)
     }
 }
 
-List unionSet(List L1, List L2)
-{
-    List L;
-    makenullList(&L);
-    Position p = L;
-    while (L1->Next != NULL)
-    {
-        L1 = L1->Next;
-        append(L1->Element, &p);
-        p = p->Next;
-    }
-    while (L2->Next != NULL)
-    {
-        L2 = L2->Next;
-        if (member(L2->Element, L) != 1)
-        {
-            append(L2->Element, &p);
-            p = p->Next;
-        }
-    }
-    return L;
-}
-
-float getAvg(List L)
-{
-    float s = 0;
-    int count = 0;
-    Position p = L;
-    if (p->Next != NULL)
-    {
-        while (p->Next != NULL)
-        {
-            p = p->Next;
-            s += p->Element;
-            count++;
-        }
-        return s / count;
-    }
-    return -10000;
-}
-
 void printList(List L)
 {
-    Position p = L;
-    while (p->Next != NULL)
+    Position p = L->Next;
+    while (p != NULL)
     {
         printf("%d ", p->Element);
         p = p->Next;
     }
     printf("\n");
-}
-
-void removeAll(int x, List *pL)
-{
-    Position a = *pL;
-    while ((a->Next != NULL))
-    {
-        Position p = locate(x, a);
-        if (p->Next != NULL)
-        {
-            deleteList(p, &a);
-        }
-        else
-            break;
-    }
 }
 
 void readList(List *pL)
@@ -201,15 +131,6 @@ void normalize(List *pL)
     }
 }
 
-void erase(int x, List *pL)
-{
-    Position p = locate(x, *pL);
-    if (p->Next != NULL)
-        deleteList(p, pL);
-    else
-        printf("Not found %d\n", x);
-}
-
 void swap(int *a, int *b)
 {
     int tmp = *a;
@@ -217,7 +138,7 @@ void swap(int *a, int *b)
     *b = tmp;
 }
 
-void sort(List *pL)
+void bbsort(List *pL)
 {
     Position p = *pL;
     Position q;
@@ -234,43 +155,11 @@ void sort(List *pL)
     }
 }
 
-List hamHop(List L1, List L2)
+void addFirst(int x, List *pL)
 {
-    List L;
-    makenullList(&L);
-    Position a = L1;
-    Position b = L2;
-    while (a->Next != NULL)
-    {
-        append(a->Element, &L);
-        a = a->Next;
-    }
-
-    while (b->Next != NULL)
-    {
-        append(b->Element, &L);
-        b = b->Next;
-    }
-    normalize(&L);
-    return L;
-}
-
-int main()
-{
-    List L1, L2, L;
-    makenullList(&L);
-
-    readList(&L1);
-    normalize(&L1);
-    reverse(&L1);
-
-    readList(&L2);
-    normalize(&L2);
-    reverse(&L2);
-
-    printList(L1);
-    printList(L2);
-    L = hamHop(L1, L2);
-    printf("%d\n", L->Element);
-    printList(L);
+    Position p;
+    p = (struct Node *)malloc(sizeof(struct Node));
+    p->Element = x;
+    p->Next = (*pL)->Next;
+    (*pL)->Next = p;
 }
